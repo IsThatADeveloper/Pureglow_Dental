@@ -1,0 +1,121 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<style>
+    .contact-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        height: 60vh;
+        margin-right: 10%;
+        margin-left: 10%;
+        padding: 50px;
+        box-sizing: border-box;
+    }
+
+    .contact-left {
+        flex: 1;
+        max-width: 50%;
+    }
+
+    .contact-left h1 {
+        font-size: 3.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .contact-left h5 {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+
+    .contact-left p {
+        margin-bottom: 30px;
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 70%;
+        padding: 10px;
+        margin-bottom: 15px;
+        color: black;
+        border-bottom: 1px solid black;
+        font-size: 1rem;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+        color: var(--p-txt);
+    }
+
+    .contact-form button {
+        padding: 10px 30px;
+        border: none;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-size: 1rem;
+    }
+
+    .contact-right {
+        flex: 1;
+        max-width: 40%;
+        text-align: left;
+    }
+
+    .contact-right h4 {
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+    }
+
+    .contact-right p {
+        margin-bottom: 15px;
+    }
+
+    .contact-right p span {
+        display: block;
+    }
+
+    .contact-form button.send-button {
+        display: flex;
+        justify-content: left;
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: border 0.3s ease, border-radius 0.3s ease;
+    }
+
+</style>
+
+<section class="contact-container">
+
+    <!-- Left section with form -->
+    <div class="contact-left">
+        <h1>Contact Us</h1>
+        <p>Feel free to contact us and we will get back to you as soon as we can.</p>
+
+        <div class="contact-form">
+            <input type="text" placeholder="Name">
+            <input type="email" placeholder="Email Address">
+            <textarea placeholder="Tell us all about it" rows="1"></textarea>
+            <button class="send-button">Send</button>
+        </div>
+    </div>
+
+    <!-- Right section with contact details -->
+    <div class="contact-right">
+        <h4>Opening Hours</h4>
+        <p>Monday – Friday<br>8am – 5pm</p>
+        <p>Weekend<br>Closed</p>
+
+        <h4>Address</h4>
+        <p>Jln. Letjend Suparman 51,<br>Kediri, Java Timur 64133,<br>Indonesia</p>
+
+        <h4>Support</h4>
+        <p><span>Email: hello@lahoi.com</span><span>Phone: +62 21 6539-0805</span></p>
+    </div>
+
+</section>
+
+{% endblock content %}

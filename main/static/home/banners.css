@@ -1,0 +1,58 @@
+.appointment-section,
+.contact-section {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--margin-top);
+    margin-bottom: var(--margin-bottom);
+    padding: 1.5% 0 1.5% 0;
+    background: var(--design-bg);
+    background-size: 18px 18px;
+    background-position: 0 0, 9px 9px;
+    opacity: 1;
+    position: relative;
+    border-bottom: 2px solid white;
+    border-top: 2px solid white;
+}
+
+.contact-section {
+    padding: 2% 0 2% 0;
+    margin-bottom: 0;
+}
+
+.contact-div {
+    margin: 0;
+}
+
+.appointment-button {
+    padding: 9.5px 24px;
+    border: 0;
+    border-radius: 100px;
+    background-color: var(--appointment-button-bg);
+    color: var(--appointment-button-txt);
+    font-weight: Bold;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    text-decoration: none;
+}
+
+.appointment-button:hover {
+    background-color: var(--appointment-button-bg-hover);
+    box-shadow: 0 0 20px var(--shadow-dark);
+    transform: scale(1.1);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.appointment-button:active {
+    background-color: var(--appointment-button-bg-active);
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.98);
+}
+
+.appointment-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

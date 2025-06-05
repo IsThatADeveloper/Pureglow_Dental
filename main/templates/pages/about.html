@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="static/about.css">
+
+<section class="about-container">
+    <div class="about-section">
+        <h1>About Us</h1>
+        <p>Discover the essence of excellence</p>
+    </div>
+
+    <div class="mission-section">
+        <div class="mission-content">
+            <h1>Our Mission</h1>
+            <p>At our core, we believe in more than just providing car insurance. Our mission is to revolutionize the
+                way you think about insurance by delivering unparalleled value and peace of mind.</p>
+            <p>We're committed to empowering you with the knowledge and tools needed to make informed decisions about
+                your coverage. With us, you're not just a policyholder; you're part of a community built on trust,
+                transparency, and reliability.</p>
+        </div>
+        <div class="mission-img-container">
+            <img class="mission-img b1 row1" src="../static/images/default_image.jpg" alt="mission-img">
+            <img class="mission-img b2 col1 row1" src="../static/images/default_image.jpg" alt="mission-img">
+            <img class="mission-img2 col1Last1" src="../static/images/default_image.jpg" alt="mission-img">
+        </div>
+    </div>
+
+    <div class="meetus-section">
+        <h1>Meet Our Dentists</h1>
+        <p>Guiding smiles towards brighter futures</p>
+
+        <link rel='stylesheet'
+            href='https://cdn-uicons.flaticon.com/2.3.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+
+        <div class="meetus-img-container">
+            <div class="dentist">
+                <img class="meetus-img" src="../static/images/default_image.jpg" alt="dentist-img">
+                <span class="meetus-name">John Doe</span>
+                <span class="meetus-title">Dentist</span>
+            </div>
+
+            <div class="dentist">
+                <img class="meetus-img" src="../static/images/default_image.jpg" alt="dentist-img">
+                <span class="meetus-name">Jane Smith</span>
+                <span class="meetus-title">Orthodontist</span>
+            </div>
+
+            <div class="dentist">
+                <img class="meetus-img" src="../static/images/default_image.jpg" alt="dentist-img">
+                <span class="meetus-name">Michael Johnson</span>
+                <span class="meetus-title">Dentist</span>
+            </div>
+
+            <div class="dentist">
+                <img class="meetus-img" src="../static/images/default_image.jpg" alt="dentist-img">
+                <span class="meetus-name">Emily Brown</span>
+                <span class="meetus-title">Hygenist</span>
+            </div>
+        </div>
+
+        <div class="teamButtonContainer">
+            <a href="/"><button class="team-button">View The Team</button></a>
+        </div>
+    </div>
+
+</section>
+
+
+{% endblock content %}

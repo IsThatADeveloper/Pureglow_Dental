@@ -1,0 +1,139 @@
+.review-section {
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    border-top: 2px solid white;
+    padding: 20px; /* Added padding for better spacing on smaller screens */
+}
+
+.review {
+    margin: 0 17%;
+    font-size: 1.2em;
+    height: 10vh;
+    overflow: hidden;
+}
+
+.divider {
+    margin: 10px 0;
+    font-size: 1.5em;
+}
+
+.date-posted {
+    margin: 10px 0;
+    font-style: italic;
+    color: #777;
+}
+
+.navigation {
+    margin-top: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigation .arrow-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigation button {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(128, 128, 128, 0.2);
+    border: 2px solid black;
+    border-radius: 50%;
+    color: #555;
+    font-size: 24px;
+    cursor: pointer;
+    margin: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navigation button:hover {
+    color: black;
+    border: 2px solid var(--accent-color);
+    background-color: rgba(128, 128, 128, 0.4);
+}
+
+.review-name {
+    font-size: var(--h3-size);
+}
+
+.review-date {
+    font-size: var(--h4-size);
+}
+
+/* Responsive Section */
+@media (max-width: 1200px) {
+    .review {
+        margin: 0 10%;
+        font-size: 1.1em;
+        height: auto; /* Adjust height for better flexibility */
+    }
+
+    .navigation button {
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .review {
+        margin: 0 5%;
+        font-size: 1em;
+    }
+
+    .navigation {
+        position: relative;
+        transform: none;
+        left: 0;
+    }
+
+    .navigation button {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+        margin: 0 3px;
+    }
+}
+
+@media (max-width: 480px) {
+    .review-section {
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .review {
+        margin: 0;
+        font-size: 0.9em;
+        height: auto;
+    }
+
+    .divider {
+        font-size: 1.2em;
+    }
+
+    .date-posted {
+        font-size: 0.9em;
+    }
+
+    .navigation button {
+        width: 25px;
+        height: 25px;
+        font-size: 16px;
+        margin: 0 2px;
+    }
+}

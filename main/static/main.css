@@ -1,0 +1,463 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: var(--font);
+    background: var(--body-bg);
+}
+
+h1, h2, h3, h4, h5, h6, p, a, div, section, span {
+    font-family: var(--font);
+}
+
+h1 { font-size: var(--h1-size); }
+h2 { font-size: var(--h2-size); }
+h3 { font-size: var(--h3-size); }
+h4 { font-size: var(--h4-size); }
+h5 { font-size: var(--h5-size); }
+h6 { font-size: var(--h6-size); }
+p { font-size: var(--p-size); }
+
+a {
+    text-decoration: none;
+    color: var(--div-txt);
+    cursor: pointer;
+}
+
+span {
+    padding: 0;
+    margin: 0;
+}
+
+/* header */
+header {
+    color: var(--header-txt);
+    margin-top: var(--margin-top);
+    margin-bottom: var(--margin-bottom);
+    background: var(--design-bg);
+    background-size: 18px 18px;
+    background-position: 0 0, 9px 9px;
+    position: relative;
+    z-index: 1000;
+}
+
+.nav-container {
+    height: 15vh;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10%;
+    padding: 2% 0;
+}
+
+.left-container {
+    align-items: center;
+    display: flex;
+}
+
+.right-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10%;
+}
+
+.right-div {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: var(--h4-size);
+}
+
+.hovereffect {
+    position: relative;
+    display: inline-block;
+}
+
+.hovereffect::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--hover-underline-cl);
+    transform-origin: bottom right;
+    transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.hovereffect:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+#checkbox,
+#checkbox-res {
+    display: none;
+}
+
+.toggle {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition-duration: 0.5s;
+}
+
+.bars {
+    width: 100%;
+    height: 4px;
+    background-color: var(--header-bar);
+    border-radius: 4px;
+}
+
+#bar2 {
+    transition-duration: 0.8s;
+}
+
+#bar1,
+#bar3 {
+    width: 70%;
+}
+
+#checkbox:checked+.toggle .bars,
+#checkbox-res:checked+.toggle .bars {
+    position: absolute;
+    transition-duration: 0.5s;
+}
+
+#checkbox:checked+.toggle #bar2,
+#checkbox-res:checked+.toggle #bar2 {
+    transform: scaleX(0);
+    transition-duration: 0.5s;
+}
+
+#checkbox:checked+.toggle #bar1,
+#checkbox-res:checked+.toggle #bar1 {
+    width: 100%;
+    transform: rotate(45deg);
+    transition-duration: 0.5s;
+}
+
+#checkbox:checked+.toggle #bar3,
+#checkbox-res:checked+.toggle #bar3 {
+    width: 100%;
+    transform: rotate(-45deg);
+    transition-duration: 0.5s;
+}
+
+#checkbox:checked+.toggle,
+#checkbox-res:checked+.toggle {
+    transition-duration: 0.5s;
+    transform: rotate(180deg);
+}
+
+.res-header {
+    display: none;
+}
+
+.normal-header {
+    display: block;
+}
+
+.dropdown-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    background-color: var(--dropdown-bg);
+    /* white background with 80% opacity */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+}
+
+#checkbox-res:checked~.dropdown-menu {
+    display: flex;
+}
+
+.dropdown-item {
+    padding: 12px 16px;
+    text-align: center;
+    border-bottom: 1px solid var(--dropdown-border);
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item a {
+    text-decoration: none;
+    color: var(--dropdown-txt);
+}
+
+.dropdown-item:hover {
+    background-color: var(--dropdown-bg-hover);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.dental_logo {
+    height: 90px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    translate: 0 -5%;
+}
+
+.dental_logo:hover {
+    cursor: pointer;
+}
+
+.header-3bar {
+    display: flex;
+    align-items: center;
+}
+
+/* Responsive Section */
+@media (max-width: 1200px) {
+    .res-header {
+        display: block;
+    }
+
+    .normal-header {
+        display: none;
+    }
+
+    .right-div {
+        display: none;
+    }
+
+    .responsive-header {
+        display: block;
+    }
+
+    .nav-container {
+        height: 15vh;
+        margin: 0 5%;
+    }
+
+    .right-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .dental_logo {
+        height: 90px;
+        width: auto;
+        display: flex;
+        justify-content: center;
+        translate: 0 -5%;
+    }
+}
+
+@media (max-width: 768px) {
+    .res-header {
+        display: block;
+    }
+
+    .normal-header {
+        display: none;
+    }
+
+    .right-div {
+        display: none;
+    }
+
+    .responsive-header {
+        display: block;
+    }
+
+    .nav-container {
+        height: 13vh;
+        margin: 0 5%;
+    }
+
+    .right-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .dental_logo {
+        height: 70px;
+        width: auto;
+        display: flex;
+        justify-content: center;
+        translate: 0 -5%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .res-header {
+        display: block;
+    }
+
+    .normal-header {
+        display: none;
+    }
+
+    .right-div {
+        display: none;
+    }
+
+    .responsive-header {
+        display: block;
+    }
+
+    .nav-container {
+        height: 10vh;
+        margin: 0 5%;
+    }
+
+    .right-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .dental_logo {
+        height: 70px;
+        width: auto;
+        display: flex;
+        justify-content: center;
+        translate: 0 -5%;
+    }
+}
+
+/* footer */
+footer {
+    width: 100%;
+    color: #333;
+    font-family: Arial, sans-serif;
+    margin-top: var(--margin-top);
+    margin-bottom: var(--margin-bottom);
+    border-top: 2px solid white;
+}
+
+.footer-content {
+    padding: 2% 1% 0 1%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.list-footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.list-footer {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.li-container {
+    padding-bottom: 5%;
+    font-size: var(--footerlink-size);
+}
+
+.li-container::before {
+    content: "• ";
+    color: var(--accent-color);
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-size: 1em;
+}
+
+a:hover {
+    color: #74C0FC;
+    transform: scale(1.05);
+}
+
+.footer-logo {
+    translate: 0 -18%;
+    height: 100px;
+}
+
+.half-text,
+.half-text-colour {
+    display: inline;
+    font-weight: bold;
+}
+
+.half-text-colour {
+    color: var(--accent-color);
+}
+
+.footer-title {
+    padding-bottom: 8%;
+}
+
+.copyright-section {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1%;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Responsive Section */
+@media (max-width: 1024px) {
+    .footer-content {
+        justify-content: space-around;
+    }
+
+    .list-footer {
+        width: 45%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        justify-content: space-around;
+    }
+
+    .list-footer {
+        width: 45%;
+        margin-bottom: 20px;
+    }
+
+    .footer-logo {
+        height: 80px;
+    }
+
+    .li-container {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .list-footer {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .footer-logo {
+        height: 70px;
+    }
+
+    .li-container {
+        font-size: 0.8em;
+    }
+
+    .footer-title {
+        padding-bottom: 5%;
+    }
+}

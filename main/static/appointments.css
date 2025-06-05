@@ -1,0 +1,157 @@
+.appointment-page {
+    display: flex;
+    justify-content: center;
+    padding: 5% 0;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 550px;
+    background-color: var(--appointment-card-bg);
+    padding: 25px;
+    border-radius: 20px;
+    border: 2px solid var(--appointment-border);
+}
+
+.appointment-title {
+    color: var(--appointment-title-txt);
+    display: flex;
+    text-align: center;
+    align-items: center;
+    padding-left: 30px;
+    position: relative;
+}
+
+.appointment-message {
+    display: flex;
+    justify-content: center;
+    color: var(--appointment-txt);
+}
+
+.select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.select-wrapper select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 100%;
+    padding: 10px 10px 20px;
+    outline: 0;
+    border: 1px solid rgba(105, 105, 105, 0.3);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.select-wrapper:focus-within span {
+    top: -10px;
+    font-size: 0.8em;
+    font-weight: 600;
+    background: var(--appointment-card-bg);
+    padding: 0 5px;
+}
+
+
+.form label {
+    position: relative;
+}
+
+.input, .select {
+    width: 100%;
+    padding: 10px 10px 20px;
+    outline: 0;
+    border: 1px solid rgba(105, 105, 105, 0.3);
+    border-radius: 10px;
+}
+
+
+.form label span {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    color: var(--appointment-input-txt);
+    cursor: text;
+    transition: 0.3s ease;
+}
+
+/* Move span above input when input is focused or has value */
+.input:focus + span,
+.input:not(:placeholder-shown) + span,
+.input:valid + span,
+.input.not-empty + span {
+    top: -10px;
+    font-size: 0.8em;
+    font-weight: 600;
+    background: var(--appointment-card-bg);
+    padding: 0 5px;
+}
+
+.select:focus + span,
+.select:valid + span,
+.select.not-empty + span {
+    top: -10px;
+    font-size: 0.8em;
+    font-weight: 600;
+    background: var(--appointment-card-bg);
+    padding: 0 5px;
+}
+
+/* Color for valid input */
+.input:valid + span {
+    color: green;
+}
+
+.select:valid + span {
+    color: green;
+}
+
+/* Style for invalid input */
+.input:invalid,
+.input:invalid + span {
+    border-color: grey;
+}
+
+.select:invalid,
+.select:invalid + span {
+    border-color: grey;
+}
+
+.submit {
+    border: none;
+    background-color: royalblue;
+    padding: 10px;
+    border-radius: 10px;
+    color: var(--submit-txt);
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit:hover {
+    background-color: rgb(56, 90, 194);
+}
+
+/* Responsive Section */
+@media (max-width: 1200px) {
+    .form {
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .form {
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .form {
+        max-width: 350px;
+    }
+}

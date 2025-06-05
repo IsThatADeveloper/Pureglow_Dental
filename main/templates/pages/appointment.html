@@ -1,0 +1,113 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='appointments.css') }}">
+
+<section class="appointment-page">
+    <form class="form" method="post" action="/">
+        <h1 class="appointment-title">Schedule Your Dental Appointment</h1>
+        <p class="appointment-message">Please fill out the form below to book your appointment with us.</p>
+        <label>
+            <input required type="text" class="input" id="firstname" name="firstname" placeholder=" ">
+            <span>First name</span>
+        </label>
+        <label>
+            <input required type="text" class="input" id="lastname" name="lastname" placeholder=" ">
+            <span>Last name</span>
+        </label>
+
+        <label>
+            <input required type="email" class="input" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder=" ">
+            <span>Email</span>
+        </label>
+        <label>
+            <input required type="text" class="input" id="number" name="number" pattern="^\+?\d{1,4}?\d{7,}$" placeholder=" ">
+            <span>Phone Number</span>
+        </label>
+
+        <label>
+            <div class="select-wrapper">
+                <select required class="select" name="service" id="service" placeholder=" ">
+                    <option value="" disabled selected></option>
+                    <option value="cleaning">Cleaning</option>
+                    <option value="whitening">Whitening</option>
+                    <option value="extraction">Extraction</option>
+                    <option value="filling">Filling</option>
+                </select>
+                <span>Select Input</span>
+            </div>
+        </label>
+
+        <label for="datetime">
+            <input required type="datetime-local" class="input datetime-input" id="datetime" placeholder=""
+                name="datetime">
+            <span>Appointment date and time</span>
+        </label>
+
+        <button class="submit">Book Appointment</button>
+    </form>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const datetimeInput = document.getElementById('datetime');
+
+    datetimeInput.addEventListener('focus', function () {
+        if (this.type === 'text') {
+            this.type = 'datetime-local';
+        }
+    });
+
+    datetimeInput.addEventListener('blur', function () {
+        if (!this.value) {
+            this.type = 'text';
+            this.placeholder = '';
+        }
+    });
+
+    datetimeInput.type = 'text';  // Initialize the input as text
+    datetimeInput.placeholder = '';  // Set initial placeholder
+
+    // Ensure spans move correctly when page loads with pre-filled values
+    const inputs = document.querySelectorAll('.input');
+    const selects = document.querySelectorAll('select');
+
+    inputs.forEach(input => {
+        if (input.value) {
+            input.classList.add('not-empty');
+        }
+
+        input.addEventListener('input', () => {
+            if (input.value) {
+                input.classList.add('not-empty');
+            } else {
+                input.classList.remove('not-empty');
+            }
+        });
+    });
+
+    selects.forEach(select => {
+        if (select.value) {
+            select.classList.add('not-empty');
+        }
+
+        select.addEventListener('change', () => {
+            if (select.value) {
+                select.classList.add('not-empty');
+            } else {
+                select.classList.remove('not-empty');
+            }
+        });
+    });
+
+    document.querySelectorAll('.select-wrapper').forEach(wrapper => {
+        wrapper.addEventListener('click', function () {
+            const select = wrapper.querySelector('.select');
+            select.focus(); // Trigger focus to open the dropdown
+        });
+    });
+});
+</script>
+
+{% endblock content %}

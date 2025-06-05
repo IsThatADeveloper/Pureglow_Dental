@@ -1,0 +1,69 @@
+:root {
+    /* backgrounds */
+    --body-bg: hwb(32 78% 16%);
+    --card-bg: white;
+    --dropdown-bg: rgba(149, 167, 141, 0.4);
+    --dropdown-bg-hover: rgba(149, 167, 141, 0.2);
+    --footer-bg: #BD897E;
+    --footer-card-bg: lightgrey;
+    --appointment-card-bg: white; /* Adjusted to fit within the color scheme */
+    --appointment-button-bg: #2ba8fb;
+    --appointment-button-bg-hover: #6fc5ff;
+    --appointment-button-bg-active: #3d94cf;
+
+    /* borders/lines */
+    --main-border-cl: black;
+    --hover-underline-cl: grey;
+    --card-res-border: white;
+    --dropdown-border: #e0e0e0;
+    --footer-card-border: rgb(255, 255, 255);
+    --header-bar: rgb(176, 92, 255);
+    --appointment-border: black;
+
+    --accent-color: #0d7dd2; 
+    /* hsl(206, 96%, 72%) */
+
+    /* text */
+    --body-txt: black;
+    --header-txt: black;
+    --card-txt: black;
+    --div-txt: black;
+    --p-txt: black;
+    --h1-txt: black;
+    --h2-txt: #7D7D7D; /* Adjusted to fit within the color scheme */
+    --h3-txt: #235487; /* Adjusted to fit within the color scheme */
+    --dropdown-txt: #333;
+    --appointment-title-txt: black;
+    --appointment-txt: black;
+    --appointment-input-txt: grey;
+    --submit-txt: white;
+    --appointment-button-txt: black;
+
+    --font: Heebo, sans-serif;
+
+    --h1-size: 2em;
+    --h2-size: 1.5em;
+    --h3-size: 1.17em;
+    --h4-size: 1em;
+    --h5-size: 0.8em;
+    --h6-size: 0.67em;
+    --p-size: 1em;
+    --footerlink-size: 0.8em;
+
+    /* shadows cards */
+    --shadow-dark: #bebebe;
+    --shadow-light: #ffffff;
+
+    --card-opacity: 0.25;
+
+    /* formats */
+    --margin-top: 0.5%;
+    --margin-bottom: 0.5%;
+
+    /* animations */
+    --pulse: lightblue;
+
+    /* designs */
+    --design-bg: radial-gradient(rgba(134, 134, 134, 0.5) 0.45px, transparent 0.45px),
+    radial-gradient(rgba(134, 134, 134, 0.5) 0.45px, rgba(255, 255, 255, 0.5) 0.45px);
+}

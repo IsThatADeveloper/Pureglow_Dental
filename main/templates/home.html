@@ -1,0 +1,425 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="static/home/review.css">
+<link rel="stylesheet" href="static/home/cards.css">
+<link rel="stylesheet" href="static/home/banners.css">
+<link rel="stylesheet" href="static/home/information.css">
+<link rel="stylesheet" href="static/home/carousel.css">
+<link rel="stylesheet" href="static/home/location.css">
+<link rel="stylesheet" href="static/home/home.css">
+<link rel="stylesheet" href="static/main.css">
+
+{% set image_one = url_for('static', filename='images/background_one.png') %}
+{% set image_two = url_for('static', filename='images/background_two.jpg') %}
+{% set image_three = url_for('static', filename='images/background_three.jpg') %}
+
+{% set animated_element = url_for('static', filename='images/toothbackground.png') %}
+{% set decorative_element = url_for('static', filename='images/toothbackground.png') %}
+{% set responsive_element = url_for('static', filename='images/tooth2.png') %}
+{% set implant_element = url_for('static', filename='images/implant.png') %}
+
+<!-- Successful Appointment -->
+{% if success %}
+<div class="container mt-4">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+</div>
+<script>
+    setTimeout(function () {
+        $('.alert').alert('close');
+    }, 4000);
+</script>
+{% endif %}
+
+<!-- Image cycle -->
+<section class="image-cycle">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="6000">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
+                <img src="{{ image_one }}" alt="First slide" loading="lazy">
+            </li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1">
+                <img src="{{ image_two }}" alt="Second slide" loading="lazy">
+            </li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2">
+                <img src="{{ image_three }}" alt="Third slide" loading="lazy">
+            </li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100 bgimg carousel-dim" src="{{ image_one }}" alt="First slide" loading="lazy">
+                <div class="carousel-caption">
+                    <h3>Smile Brighter</h3>
+                    <p>Transform your smile today.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100 bgimg carousel-dim" src="{{ image_two }}" alt="Second slide" loading="lazy">
+                <div class="carousel-caption">
+                    <h3>Healthy Teeth, Happy Life</h3>
+                    <p>Your journey to optimal dental health starts here.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100 bgimg carousel-dim" src="{{ image_three }}" alt="Third slide" loading="lazy">
+                <div class="carousel-caption">
+                    <h3>Your Smile Matters</h3>
+                    <p>Discover the difference exceptional dental care can make.</p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/de329c76bd.js" crossorigin="anonymous"></script>
+
+</section>
+
+<!-- Book Appointment -->
+<section class="appointment-section">
+    <div class="appointment-center">
+        <h3>Book an Appointment</h3>
+        <a href="/appointment" class="appointment-button">Book</a>
+    </div>
+</section>
+
+<!-- Treatments -->
+<section class="computer-responsive scroll-animation">
+    <div class="treatments">
+        <div class="treatment-header">
+            <h2>Our <span class="card-color">Dental Treatments</span></h2>
+        </div>
+        <div class="slogen">
+            <h4>Your Smile Is Worth Gold</h4>
+        </div>
+
+        <div class="card-container">
+            <div class="card card-left">
+                <img src="{{ decorative_element }}" alt="Decorative Element" class="decorative-element" loading="lazy">
+                <div class="card-text">
+                    <h3>Teeth Whitening</h3>
+                </div>
+                <div class="card-text-p">
+                    <p>Remove stains for a brighter smile. Book today!</p>
+                </div>
+                <img src="{{ animated_element }}" alt="Tooth" class="tooth-image-right" loading="lazy">
+            </div>
+            <div class="card card-middle">
+                <img src="{{ implant_element }}" alt="Implant Element" class="decorative-element" loading="lazy">
+                <div class="card-text">
+                    <h3>Dental Implants</h3>
+                </div>
+                <div class="card-text-p">
+                    <p>Restore your smile with natural-looking implants. Schedule now!</p>
+                </div>
+                <img src="{{ animated_element }}" alt="Tooth" class="tooth-image-middle-left" loading="lazy">
+            </div>
+            <div class="card card-middle">
+                <img src="{{ decorative_element }}" alt="Decorative Element" class="decorative-element" loading="lazy">
+                <div class="card-text">
+                    <h3>Invisalign</h3>
+                </div>
+                <div class="card-text-p">
+                    <p>Straighten your teeth discreetly. Start today!</p>
+                </div>
+                <img src="{{ animated_element }}" alt="Tooth" class="tooth-image-middle-right" loading="lazy">
+            </div>
+            <div class="card card-right">
+                <img src="{{ decorative_element }}" alt="Decorative Element" class="decorative-element" loading="lazy">
+                <div class="card-text">
+                    <h3>Dental Cleanings</h3>
+                </div>
+                <div class="card-text-p">
+                    <p>Maintain a healthy smile with regular cleanings. Book now!</p>
+                </div>
+                <img src="{{ animated_element }}" alt="Tooth" class="tooth-image-left" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Treatments  Responsive-->
+
+<section class="phone-responsive scroll-animation">
+    <div class="screen">
+        <div class="res-card-header">
+            <h2>Our <span class="card-color">Dental Treatments</span></h2>
+        </div>
+        <div class="res-slogen">
+            <h4>Your Smile Is Worth Gold</h4>
+        </div>
+
+        <div class="small-card">
+            <div class="small-card-t">
+                <h3>Teeth Whitening</h3>
+            </div>
+            <img src="{{ responsive_element }}" alt="Responsive Element" class="responsive-element" loading="lazy">
+            <div class="small-card-p">
+                <p>Remove stains for a brighter smile. Book today!</p>
+            </div>
+        </div>
+
+        <div class="small-card">
+            <div class="small-card-t">
+                <h3>Dental Implants</h3>
+            </div>
+            <img src="{{ implant_element }}" alt="Implant Element" class="responsive-element" loading="lazy">
+            <div class="small-card-p">
+                <p>Restore your smile with natural-looking implants. Schedule now!</p>
+            </div>
+        </div>
+
+        <div class="small-card">
+            <div class="small-card-t">
+                <h3>Invisalign</h3>
+            </div>
+            <img src="{{ responsive_element }}" alt="Responsive Element" class="responsive-element" loading="lazy">
+            <div class="small-card-p">
+                <p>Straighten your teeth discreetly. Start today!</p>
+            </div>
+        </div>
+
+        <div class="small-card">
+            <div class="small-card-t">
+                <h3>Dental Cleanings</h3>
+            </div>
+            <img src="{{ responsive_element }}" alt="Responsive Element" class="responsive-element" loading="lazy">
+            <div class="small-card-p">
+                <p>Maintain a healthy smile with regular cleanings. Book now!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Us -->
+<section class="contact-section scroll-animation">
+    <div>
+        <h3 class="contact-div">CONTACT US AT (000)-000-0000</h3>
+    </div>
+</section>
+
+<!-- First SplitPage -->
+<section class="splitpage-section scroll-animation">
+    <div class="information-splitpage">
+        <div class="side-left">
+        </div>
+        <div class="side-right">
+            <div>
+                <h2 class="split-title">Welcome to <span class="split-color">PureGlow</span> ◆ <span
+                        class="split-color">Dental</span></h2>
+                <div class="format-left-split">
+                    <h4>At <span class="split-color">PureGlow</span> ◆ <span class="split-color">Dental</span>, we
+                        combine modern technology with a warm, welcoming atmosphere. From the moment you step through
+                        our doors, you’ll notice the difference.</h4>
+                    <h4>Our cutting-edge facilities include an on-site lab, advanced 3D X-Ray imaging, and a medical
+                        grade cleaning system, ensuring top-quality care.</h4>
+                    <h4>We proudly offer Teeth in a Day, allowing you to leave with new, implant-based teeth in just one
+                        visit.</h4>
+                    <h4>We cater to all ages, from young children to adults, providing routine check-ups, wisdom teeth
+                        extractions, and complex gum surgeries.</h4>
+                    <h4>Experience the <span class="split-color">PureGlow</span> ◆ <span
+                            class="split-color">Dental</span> difference – where your smile shines brighter.</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Second Splitpage -->
+<section class="splitpage-section-2 scroll-animation">
+    <div class="information-splitpage">
+        <div class="side-left-2">
+            <div>
+                <h2 class="split-title">The Future of <span class="split-color">Dentistry</span></h2>
+                <div class="format-right-split">
+                    <h4>At <span class="split-color">PureGlow</span> ◆ <span class="split-color">Dental</span>, we are
+                        committed to staying at the forefront of dental innovation to provide the best care possible.
+                    </h4>
+                    <h4>Our services range from routine check-ups and cleanings to advanced cosmetic procedures like
+                        teeth whitening and veneers.</h4>
+                    <h4>We also offer restorative care, including fillings, crowns, bridges, and implants, as well as
+                        orthodontic treatments like Invisalign and traditional braces.</p>
+                        <h4>In case of emergencies, our team is ready to provide prompt and effective care.</h4>
+                        <h4>Discover the future of dentistry at <span class="split-color">PureGlow</span> ◆ <span
+                                class="split-color">Dental</span>, where your smile is our top priority.</h4>
+                </div>
+            </div>
+        </div>
+        <div class="side-right-2">
+        </div>
+    </div>
+</section>
+
+<!-- Reviews -->
+<section class="review-section scroll-animation">
+    <div id="review-section-1">
+        <div class="review">"Dr. Smith and his team were fantastic! The office was clean and inviting, and my cleaning
+            was quick and painless. Dr. Smith explained everything clearly and made me feel comfortable. Highly
+            recommend this dental office!"</div>
+        <div class="divider">━━━━━━━━━▼━━━━━━━━━</div>
+        <div class="date-posted">
+            <span class="review-name">Jimmy Doe</span>
+            <span class="review-date">Jan-8-2024</span>
+        </div>
+        <div class="navigation">
+            <div class="arrow-container">
+                <button class="prev-review" onclick="showPrevReview()">&lt;</button>
+                <button class="next-review" onclick="showNextReview()">&gt;</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="review-section-2" style="display: none;">
+        <div class="review">"Great experience with Dr. Jones! The staff was friendly, and the office had a relaxing
+            atmosphere. My filling was done efficiently and without pain. I'll definitely be returning for future
+            check-ups!"</div>
+        <div class="divider">━━━━━━━━━▼━━━━━━━━━</div>
+        <div class="date-posted">
+            <span class="review-name">Joe Smith</span>
+            <span class="review-date">Jun-15-2023</span>
+        </div>
+        <div class="navigation">
+            <div class="arrow-container">
+                <button class="prev-review" onclick="showPrevReview()">&lt;</button>
+                <button class="next-review" onclick="showNextReview()">&gt;</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="review-section-3" style="display: none;">
+        <div class="review">"Highly recommend Dr. Lee's dental practice! The team was professional and kind, and my
+            teeth cleaning was thorough. Dr. Lee took the time to address all my concerns. Excellent service overall!"
+        </div>
+        <div class="divider">━━━━━━━━━▼━━━━━━━━━</div>
+        <div class="date-posted">
+            <span class="review-name">John Doe</span>
+            <span class="review-date">May-2-2024</span>
+        </div>
+        <div class="navigation">
+            <div class="arrow-container">
+                <button class="prev-review" onclick="showPrevReview()">&lt;</button>
+                <button class="next-review" onclick="showNextReview()">&gt;</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Location -->
+<section class="location-section scroll-animation">
+    <div>
+        <h2 class="location-title">Hours of Operation</h2>
+        <section class="hours-layout">
+            <div><span>Monday</span><span> — </span><span>9AM - 2PM</span></div>
+            <div><span>Tuesday</span><span> — </span><span>9AM - 2PM</span></div>
+            <div><span>Wednesday</span><span> — </span><span>9AM - 2PM</span></div>
+            <div><span>Thursday</span><span> — </span><span>9AM - 2PM</span></div>
+            <div><span>Friday</span><span> — </span><span>9AM - 2PM</span></div>
+            <div><span>Saturday</span><span> — </span><span>9AM - 2PM</span></div>
+            <div><span>Sunday</span><span> — </span><span>9AM - 2PM</span></div>
+        </section>
+    </div>
+
+    <div>
+        <h2 class="location-title">Where You Can Find Us</h2>
+        <section class="map-layout">
+            <iframe class="google-map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2880.938668526293!2d-79.67455852433612!3d43.774131944601685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b3cb6232bf191%3A0x24d52a000cec4446!2s11%20Avalanche%20Crescent%2C%20Brampton%2C%20ON%20L6P%201M3!5e0!3m2!1sen!2sca!4v1710885727216!5m2!1sen!2sca"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </section>
+    </div>
+</section>
+
+<!-- Check if its useful? Preload? -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const scrollElements = document.querySelectorAll('.scroll-animation');
+
+        const elementInView = (el, dividend = 1) => {
+            const elementTop = el.getBoundingClientRect().top;
+            return (
+                elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
+            );
+        };
+
+        const displayScrollElement = (element) => {
+            element.classList.add('visible');
+        };
+
+        const hideScrollElement = (element) => {
+            element.classList.remove('visible');
+        };
+
+        const handleScrollAnimation = () => {
+            scrollElements.forEach((el) => {
+                if (elementInView(el, 1.25)) {
+                    displayScrollElement(el);
+                } else {
+                    hideScrollElement(el);
+                }
+            });
+        };
+
+        window.addEventListener('scroll', () => {
+            handleScrollAnimation();
+        });
+
+        handleScrollAnimation();
+    });
+
+    const reviews = document.querySelectorAll('.review-section > div');
+    let currentIndex = 0;
+
+    function showPrevReview() {
+        reviews[currentIndex].style.display = 'none';
+        currentIndex = (currentIndex - 1 + reviews.length) % reviews.length;
+        reviews[currentIndex].style.display = 'block';
+    }
+
+    function showNextReview() {
+        reviews[currentIndex].style.display = 'none';
+        currentIndex = (currentIndex + 1) % reviews.length;
+        reviews[currentIndex].style.display = 'block';
+    }
+
+    document.addEventListener("keydown", function (event) {
+        let nextIndex;
+
+        if (event.key === "ArrowDown" || event.key === "ArrowRight") {
+            nextIndex = (currentIndex + 1) % reviews.length;
+        } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
+            nextIndex = (currentIndex - 1 + reviews.length) % reviews.length;
+        }
+
+        if (nextIndex !== undefined) {
+            reviews[currentIndex].style.display = 'none';
+            currentIndex = nextIndex;
+            reviews[nextIndex].style.display = 'block';
+        }
+    });
+</script>
+
+{% endblock content %}
